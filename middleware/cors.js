@@ -9,6 +9,7 @@ const allowDomains = [
 
 module.exports = async (ctx, next) => {
   let { origin } = ctx.request.headers
+  
   if (origin) {
     // 不考虑端口和协议
     let domain = (origin.split('/').slice(-1)[0] || '').split(':')[0] || ''

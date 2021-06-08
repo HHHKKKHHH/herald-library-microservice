@@ -94,7 +94,6 @@ module.exports = async (ctx, next) => {
    */
   // 对于 auth 路由的请求，直接截获，不交给 kf-router
   if (ctx.path === '/auth') {
-
     // POST /auth 登录认证
     if (ctx.method.toUpperCase() !== 'POST') {
       throw 405

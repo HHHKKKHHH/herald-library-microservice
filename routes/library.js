@@ -20,7 +20,9 @@ exports.route={
      * @returns {Array<String>} recommendList       推荐书籍
      */
     async get({token}){
-
+        if(!token){
+            throw '非法的未认证访问！'
+        }
         let authRecord = await this.db.execute(
             `SELECT CARDNUM FROM XSC_LIBRARY_SHOW_AUTH
             WHERE TOKEN=:token`,
